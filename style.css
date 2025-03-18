@@ -1,0 +1,289 @@
+/* General Reset & Fonts */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Amiri', serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Great Vibes', cursive;
+    margin: 0;
+  }
+  
+  p, input, button {
+    font-family: 'Amiri', serif;
+  }
+  
+  /* Animated Background Slideshow */
+  .bg-slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    overflow: hidden;
+  }
+  
+  .bg-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    animation: slideshow 24s infinite;
+  }
+  
+  .bg-slide:nth-child(1) { animation-delay: 0s; }
+  .bg-slide:nth-child(2) { animation-delay: 8s; }
+  .bg-slide:nth-child(3) { animation-delay: 16s; }
+  
+  @keyframes slideshow {
+    0%, 100% { opacity: 0; }
+    10%, 30% { opacity: 1; }
+    40%, 100% { opacity: 0; }
+  }
+  
+  /* Floating Lanterns & Moon */
+  .floating-lanterns {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .lantern, .moon {
+    position: absolute;
+    width: 80px;
+    animation: float 5s ease-in-out infinite;
+    opacity: 0.8;
+  }
+  
+  .lantern1 { top: 10%; left: 10%; animation-delay: 1s; }
+  .lantern2 { top: 20%; right: 10%; animation-delay: 2s; }
+  .moon { top: 5%; left: 45%; width: 120px; animation-delay: 0s; }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(20px); }
+  }
+  
+  /* Header Section */
+  header {
+    text-align: center;
+    padding: 80px 20px 20px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+  }
+  
+  header h1 {
+    font-size: 3em;
+    color: #FFD700;
+    text-shadow: 2px 2px #333;
+  }
+  
+  .sub-text {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #ddd;
+  }
+  
+  /* Eid Card Styling */
+  .card-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  .eid-card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 0 20px #FFD700;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    backdrop-filter: blur(6px);
+  }
+  
+  .greeting-text {
+    font-size: 2em;
+    color: #FFD700;
+    margin-bottom: 10px;
+  }
+  
+  .custom-message {
+    margin: 10px 0;
+    color: #fff;
+    font-size: 1.1em;
+  }
+  .sender-name {
+    margin: 10px 0;
+    color: #c52d2d;
+    font-size: 2.1em;
+  }
+  .eid-card {
+    background: rgb(0, 0, 0);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+    border: 2px solid #eee;
+  }
+  /* Input Fields and Buttons */
+  .inputs input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #222;
+    color: #fff;
+    font-size: 1em;
+  }
+  
+  .inputs button {
+    padding: 10px 20px;
+    background: #FFD700;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .buttons {
+    margin-top: 5px;
+  }
+  
+  .buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    background: #00c4ff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .buttons button:hover {
+    background: #1ad1ff;
+  }
+  
+  .eid-controls-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px;
+  }
+  
+  .nasheed-btn button,
+  .fireworks-toggle button {
+    background-color: #1ad1ff;
+    color: #000;
+    border: 2px solid #ccc;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nasheed-btn button:hover,
+  .fireworks-toggle button:hover {
+    background-color: #1ad1ff;
+  }
+  
+  .countdown-center {
+    text-align: center;
+    min-width: 200px;
+  }
+  
+  .countdown-center h3 {
+    font-family: 'Cursive', sans-serif;
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+  
+  #countdownTimer {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .eid-controls-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .nasheed-btn button,
+    .fireworks-toggle button {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .countdown-center h3,
+    #countdownTimer {
+      font-size: 20px;
+    }
+  }
+  
+  /* Fireworks Canvas */
+  #fireworksCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    display: none;
+  }
+  
+  /* Entrance Animations */
+  .fade-in {
+    animation: fadeIn 2s ease-in forwards;
+  }
+  .fade-in-delayed {
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards;
+    animation-delay: 1.2s;
+  }
+  .fade-in-slow {
+    opacity: 0;
+    animation: fadeIn 3s ease-in forwards;
+    animation-delay: 1.6s;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 600px) {
+    .eid-card, .gift-ideas {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .greeting-text {
+      font-size: 1.5em;
+    }
+  }
+  

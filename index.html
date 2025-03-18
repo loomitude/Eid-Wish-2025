@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Send beautiful Eid Mubarak greeting cards, countdown to Eid, and share wishes with your loved ones.">
+      <meta name="keywords" content="Eid 2025, Eid Mubarak 2025, Eid Greeting Card, Eid Wishes, Eid Countdown 2025, Eid ul fitr date 2025">
+      <meta name="author" content="Muhammad Usman Anwar">
+      <meta name="robots" content="index, follow">
+      <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <title>Eid-ul-Fitr Greeting Card</title>    
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Animated Background Decorations -->
+  <div class="floating-lanterns">
+    <img src="lantern1.png" alt="Lantern" class="lantern lantern1">
+    <img src="lantern2.png" alt="Lantern" class="lantern lantern2">
+    <img src="moon.png" alt="Moon" class="moon">
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" src="nasheed.mp3" loop></audio>
+
+  <!-- Header Section -->
+  <header>
+    <h1 class="fade-in">🌙 Eid Mubarak!</h1>
+    <p class="sub-text fade-in-delayed">Wishing you and your family a joyous and blessed Eid-ul-Fitr ✨</p>
+  </header>
+<!-- Eid Countdown Section -->
+<div class="eid-controls-container fade-in-delayed">
+  <div class="nasheed-btn">
+    <button onclick="playNasheed()">🎵 Play Nasheed</button>
+  </div>
+
+  <div class="countdown-center">
+    <h3>⏳ Countdown to Eid:</h3>
+    <div id="countdownTimer">Loading...</div>
+  </div>
+
+  <div class="fireworks-toggle">
+    <button onclick="toggleFireworks()">🎆 Toggle Fireworks</button>
+  </div>
+</div>
+
+
+
+  <!-- Main Card Area -->
+<div class="card-container fade-in-slow">
+  <div class="eid-card" id="cardContent"> <!-- Added id="cardContent" here -->
+    <h2 class="greeting-text">Eid Mubarak!</h2>
+    <p class="custom-message" id="displayMessage">May this Eid bring peace, happiness, and blessings to your life.</p>
+    <p class="sender-name" id="senderNameDisplay">– From Your Friend</p>
+  </div>
+</div>
+    <div class="card-container fade-in-slow">
+      <div class="inputs">
+        <input type="text" id="nameInput" placeholder="Your Name">
+        <input type="text" id="customMessage" placeholder="Your Message (Optional)">
+        <button onclick="generateCard()">Update Card</button>
+      </div>
+    </div>
+    <div class="card-container fade-in-slow">
+      <div class="buttons">
+        <button onclick="shareWish()">📤 Share Greeting</button>
+        <button onclick="downloadCard()">💾 Download Card</button>
+      
+      </div> 
+    </div>
+  </div>
+
+  <!-- Fireworks Canvas (Hidden Initially) -->
+  <canvas id="fireworksCanvas"></canvas>
+
+  <!-- Image Background Slideshow -->
+  <div class="bg-slideshow">
+    <img src="img1.jpg" class="bg-slide" />
+    <img src="img2.jpg" class="bg-slide" />
+    <img src="img3.jpg" class="bg-slide" />
+  </div>
+
+  <!-- Script Link -->
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
