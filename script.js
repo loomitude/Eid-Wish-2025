@@ -8,24 +8,24 @@ function generateCard() {
     const senderDisplay = document.getElementById('senderNameDisplay');
     const messageDisplay = document.getElementById('displayMessage');
   
-    if (name !== '') {
-      senderDisplay.textContent = "– From " + name;
-    } else {
-      senderDisplay.textContent = "– From Your Friend";
-    }
+    const senderName = name !== '' ? name : "Your Friend";
+    const greetingMessage = message !== '' ? message : "May this Eid bring peace, happiness, and blessings to your life.";
   
-    if (message !== '') {
-      messageDisplay.textContent = message;
-    } else {
-      messageDisplay.textContent = "May this Eid bring peace, happiness, and blessings to your life.";
-    }
+    senderDisplay.textContent = "– From " + senderName;
+    messageDisplay.textContent = greetingMessage;
+  
+    // Generate personalized URL with encoded parameters
+    const personalizedURL = `${window.location.origin}${window.location.pathname}?name=${encodeURIComponent(senderName)}&message=${encodeURIComponent(greetingMessage)}`;
+  
+    // Update a hidden link element or store for sharing
+    document.getElementById('personalizedLink').value = personalizedURL;
   }
   
   // =========================
   // 2. Countdown Timer
   // =========================
   function startCountdown() {
-    const eidDate = new Date("2025-03-31T18:30:00"); // Change this date to actual Eid day
+    const eidDate = new Date("2025-03-31T18:30:00"); // Change to actual Eid date/time
     const timer = document.getElementById("countdownTimer");
   
     setInterval(() => {
@@ -129,36 +129,47 @@ function generateCard() {
   }
   
   // =========================
-// 5. Download Card
-// =========================
-function downloadCard() {
-  const card = document.getElementById('cardContent');
-  html2canvas(card).then(canvas => {
-    const link = document.createElement('a');
-    const name = document.getElementById("nameInput").value || "eid_card";
-    link.download = `eid_card_from_${name.replace(/\s+/g, '_')}.png`;
-    link.href = canvas.toDataURL();
-    link.click();
-  });
-}
-
+  // 5. Download Card
   // =========================
-  // 6. Share Greeting
+  function downloadCard() {
+    const card = document.getElementById('cardContent');
+    html2canvas(card).then(canvas => {
+      const link = document.createElement('a');
+      const name = document.getElementById("nameInput").value || "eid_card";
+      link.download = `eid_card_from_${name.replace(/\s+/g, '_')}.png`;
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  }
+  
+  // =========================
+  // 6. Share Greeting (✅ Fixed Version)
   // =========================
   function shareWish() {
-    const name = document.getElementById("nameInput").value || "Your Friend";
-    const message = document.getElementById("customMessage").value || "Eid Mubarak! May this Eid bring joy and peace.";
+    const personalizedURL = document.getElementById("personalizedLink").value || window.location.href;
+    const senderDisplay = document.getElementById("senderNameDisplay").textContent || "– From Your Friend";
+    const messageDisplay = document.getElementById("displayMessage").textContent || "Eid Mubarak!";
   
-    const text = `🌙 Eid Mubarak!\n${message}\n– From ${name}\n\nCelebrate at: ${window.location.href}`;
-    
+    const text = `🌙 Eid Mubarak!\n${messageDisplay}\n${senderDisplay}\n\nCelebrate at: ${personalizedURL}`;
+  
     if (navigator.share) {
       navigator.share({
         title: "Eid Mubarak Greeting",
         text: text,
-        url: window.location.href
+        url: personalizedURL
       }).catch(() => alert("Unable to share."));
     } else {
       prompt("Copy and share this greeting:", text);
     }
   }
+  window.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+    const message = urlParams.get("message");
   
+    if (name || message) {
+      document.getElementById('senderNameDisplay').textContent = name ? "– From " + name : "– From Your Friend";
+      document.getElementById('displayMessage').textContent = message || "May this Eid bring peace, happiness, and blessings to your life.";
+    }
+  });
+    
