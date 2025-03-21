@@ -14,7 +14,7 @@
 </head>
 <body>
   <input type="text" id="personalizedLink" style="display: none;">
-  
+
   <!-- Animated Background Decorations -->
   <div class="floating-lanterns">
     <img src="lantern1.png" alt="Lantern" class="lantern lantern1">
@@ -30,46 +30,45 @@
     <h1 class="fade-in">🌙 Eid Mubarak!</h1>
     <p class="sub-text fade-in-delayed">Wishing you and your family a joyous and blessed Eid-ul-Fitr ✨</p>
   </header>
-<!-- Eid Countdown Section -->
-<div class="eid-controls-container fade-in-delayed">
-  <div class="nasheed-btn">
-    <button onclick="playNasheed()">🎵 Play Nasheed</button>
+
+  <!-- Eid Countdown Section -->
+  <div class="eid-controls-container fade-in-delayed">
+    <div class="nasheed-btn">
+      <button onclick="playNasheed()">🎵 Play Nasheed</button>
+    </div>
+
+    <div class="countdown-center">
+      <h3>⏳ Countdown to Eid:</h3>
+      <div id="countdownTimer">Loading...</div>
+    </div>
+
+    <div class="fireworks-toggle">
+      <button onclick="toggleFireworks()">🎆 Toggle Fireworks</button>
+    </div>
   </div>
-
-  <div class="countdown-center">
-    <h3>⏳ Countdown to Eid:</h3>
-    <div id="countdownTimer">Loading...</div>
-  </div>
-
-  <div class="fireworks-toggle">
-    <button onclick="toggleFireworks()">🎆 Toggle Fireworks</button>
-  </div>
-</div>
-
-
 
   <!-- Main Card Area -->
-<div class="card-container fade-in-slow">
-  <div class="eid-card" id="cardContent"> <!-- Added id="cardContent" here -->
-    <h2 class="greeting-text">Eid Mubarak!</h2>
-    <p class="custom-message" id="displayMessage">May this Eid bring peace, happiness, and blessings to your life.</p>
-    <p class="sender-name" id="senderNameDisplay">– From Your Friend</p>
+  <div class="card-container fade-in-slow">
+    <div class="eid-card" id="cardContent">
+      <h2 class="greeting-text">Eid Mubarak!</h2>
+      <p class="custom-message" id="displayMessage">May this Eid bring peace, happiness, and blessings to your life.</p>
+      <p class="sender-name" id="senderNameDisplay">– From Your Friend</p>
+    </div>
   </div>
-</div>
-    <div class="card-container fade-in-slow">
-      <div class="inputs">
-        <input type="text" id="nameInput" placeholder="Your Name">
-        <input type="text" id="customMessage" placeholder="Your Message (Optional)">
-        <button onclick="generateCard()">Update Card</button>
-      </div>
+
+  <div class="card-container fade-in-slow">
+    <div class="inputs">
+      <input type="text" id="nameInput" placeholder="Your Name">
+      <input type="text" id="customMessage" placeholder="Your Message (Optional)">
+      <button onclick="generateCard()">Update Card</button>
     </div>
-    <div class="card-container fade-in-slow">
-      <div class="buttons">
-        <button onclick="shareWish()">📤 Share Greeting</button>
-        <button onclick="downloadCard()">💾 Download Card</button>
-      
-      </div> 
-    </div>
+  </div>
+
+  <div class="card-container fade-in-slow">
+    <div class="buttons">
+      <button onclick="shareWish()">📤 Share Greeting</button>
+      <button onclick="downloadCard()">💾 Download Card</button>
+    </div> 
   </div>
 
   <!-- Fireworks Canvas (Hidden Initially) -->
@@ -85,6 +84,5 @@
   <!-- Script Link -->
   <script src="script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
 </body>
 </html>
